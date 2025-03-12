@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de Videojuegos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+    <!-- Header -->
+    <header class="bg-green-600 text-white py-6 shadow-lg">
+        <div class="container mx-auto px-4 flex items-center justify-center">
+            <img src="Videojuegos/Y.jpg" alt="Logo" class="h-16 w-16 mr-4 animate-pulse">
+            <h1 class="text-4xl font-bold text-center animate-bounce">Tipos de Videojuegos</h1>
+        </div>
+        <p class="text-center mt-2 text-lg opacity-80 animate-fade">Explora los diferentes géneros de videojuegos y descubre cuál es tu favorito.</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <section class="mb-12 text-center">
+            <h2 class="text-3xl font-bold mb-4 transition-transform duration-500 transform hover:scale-110">¿Qué tipo de videojuego te gusta?</h2>
+            <p class="text-gray-700 max-w-2xl mx-auto">Los videojuegos ofrecen experiencias únicas, desde la acción frenética hasta la estrategia meticulosa. Descubre los principales tipos de videojuegos.</p>
+        </section>
+
+        <!-- Grid de Tipos de Videojuegos -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Tarjetas de Videojuegos -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-transform duration-300 transform hover:scale-105">
+                <img src="Videojuegos/accion.jpg" alt="Acción" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold mb-3 text-green-600 hover:text-green-800 transition-colors">Acción</h2>
+                    <p class="text-gray-700">Juegos con desafíos físicos como lucha y exploración. Ideales para quienes buscan emociones fuertes.</p>
+                    <a href="https://es.wikipedia.org/wiki/Videojuego_de_acción" target="_blank" class="text-green-500 font-semibold hover:underline">Leer más</a>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-transform duration-300 transform hover:scale-105">
+                <img src="Videojuegos/aventura.jpeg" alt="Aventura" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold mb-3 text-blue-600 hover:text-blue-800 transition-colors">Aventura</h2>
+                    <p class="text-gray-700">Explora mundos y resuelve acertijos en una historia inmersiva.</p>
+                    <a href="https://es.wikipedia.org/wiki/Videojuego_de_aventura" target="_blank" class="text-blue-500 font-semibold hover:underline">Leer más</a>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-transform duration-300 transform hover:scale-105">
+                <img src="Videojuegos/estrategia.png" alt="Estrategia" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold mb-3 text-red-600 hover:text-red-800 transition-colors">Estrategia</h2>
+                    <p class="text-gray-700">Planificación y gestión de recursos para alcanzar la victoria.</p>
+                    <a href="https://es.wikipedia.org/wiki/Videojuego_de_estrategia" target="_blank" class="text-red-500 font-semibold hover:underline">Leer más</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-green-600 text-white py-6 mt-12 text-center">
+        <p class="animate-fade">&copy; 2023 Tipos de Videojuegos. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

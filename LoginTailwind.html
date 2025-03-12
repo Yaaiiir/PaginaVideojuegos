@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Gamer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        * { font-family: 'Press Start 2P', cursive; }
+
+        body {
+            transition: background-image 1s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center min-h-screen bg-cover bg-center bg-no-repeat" id="background" bgcolor="bg-black">
+    <div class="w-full max-w-md p-8 bg-black bg-opacity-80 rounded-2xl shadow-2xl border-4 border-green-500">
+        <h2 class="text-3xl text-center text-green-400">🎮 LOGIN GAMER 🎮</h2>
+        <form id="loginForm" class="mt-6">
+            <div class="mb-4">
+                <label class="block text-sm text-green-300">Usuario</label>
+                <input type="text" id="username" class="w-full px-4 py-2 mt-1 bg-black text-green-300 border border-green-400 rounded-lg focus:ring-2 focus:ring-green-500">
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm text-green-300">Contraseña</label>
+                <input type="password" id="password" class="w-full px-4 py-2 mt-1 bg-black text-green-300 border border-green-400 rounded-lg focus:ring-2 focus:ring-green-500">
+            </div>
+            <button type="submit" class="w-full px-4 py-2 mt-3 bg-green-500 text-black rounded-lg hover:bg-green-600 transition-all duration-300 shadow-lg">Entrar</button>
+        </form>
+        <p id="errorMsg" class="mt-3 text-sm text-red-500 hidden text-center">⚠ Usuario o contraseña incorrectos ⚠</p>
+        <p class="mt-4 text-sm text-center text-green-300">¿No tienes cuenta? <a href="#" id="registerLink" class="text-green-400 hover:underline">Regístrate</a></p>
+    </div>
+
+    <div id="registerSection" class="hidden w-full max-w-md p-8 bg-black bg-opacity-80 rounded-2xl shadow-2xl border-4 border-blue-500">
+        <h2 class="text-3xl text-center text-blue-400">⚡ REGISTRO ⚡</h2>
+        <form id="registerForm" class="mt-6">
+            <div class="mb-4">
+                <label class="block text-sm text-blue-300">Nuevo Usuario</label>
+                <input type="text" id="newUsername" class="w-full px-4 py-2 mt-1 bg-black text-blue-300 border border-blue-400 rounded-lg focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm text-blue-300">Nueva Contraseña</label>
+                <input type="password" id="newPassword" class="w-full px-4 py-2 mt-1 bg-black text-blue-300 border border-blue-400 rounded-lg focus:ring-2 focus:ring-blue-500">
+            </div>
+            <button type="submit" class="w-full px-4 py-2 mt-3 bg-blue-500 text-black rounded-lg hover:bg-blue-600 transition-all duration-300 shadow-lg">Registrarse</button>
+        </form>
+    </div>
+
+    <script>
+        const users = {};
+
+        document.getElementById("registerLink").addEventListener("click", function(event) {
+            event.preventDefault();
+            document.querySelector("div").classList.add("hidden");
+            document.getElementById("registerSection").classList.remove("hidden");
+        });
+
+        document.getElementById("registerForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const newUsername = document.getElementById("newUsername").value;
+            const newPassword = document.getElementById("newPassword").value;
+            
+            if (newUsername && newPassword) {
+                users[newUsername] = newPassword;
+                alert("Usuario registrado con éxito");
+                document.getElementById("registerSection").classList.add("hidden");
+                document.querySelector("div").classList.remove("hidden");
+            }
+        });
+
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            
+            if (users[username] && users[username] === password) {
+                sessionStorage.setItem("user", username);
+                alert("Inicio de sesión exitoso");
+                window.location.href = "dashboard.html";
+            } else {
+                document.getElementById("errorMsg").classList.remove("hidden");
+            }
+        });
+
+        // Cambiar fondo automáticamente cada 5 segundos
+        const backgrounds = [
+            'Videojuegos/fondo1.jpg',
+            'Videojuegos/fondo2.jpg',
+            'Videojuegos/fondo3.jpg',
+            'Videojuegos/fondo4.jpg',
+            'Videojuegos/fondo5.png',
+            'Videojuegos/fondo6.jpg'
+        ];
+        
+        let currentBgIndex = 0;
+        function changeBackground() {
+            document.getElementById("background").style.backgroundImage = `url('${backgrounds[currentBgIndex]}')`;
+            currentBgIndex = (currentBgIndex + 1) % backgrounds.length;
+        }
+
+        setInterval(changeBackground, 5000);
+    </script>
+</body>
+</html>
